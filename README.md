@@ -14,7 +14,9 @@ This project focuses on:
 - Easy rollback to Android if needed
 
 ---
-## Installation Instructions (Full and Unstripped)
+## Installation Instructions
+
+Download the releases here: https://github.com/chieunhatnang/vnptsmb2-s805-debian/releases
 
 Please follow the steps **exactly**. No information in this guide is optional unless explicitly stated.
 
