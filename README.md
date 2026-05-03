@@ -148,7 +148,29 @@ Use this method if you need a larger Debian root filesystem than the internal st
 
 ---
 
-### 6. Final Notes
+### 6. First Boot and SSH Login
+
+After restoring Debian and rebooting the box:
+
+1. Plug the box's **Ethernet port** into your router.
+2. Find the box's IP address from your router's DHCP client list.
+3. Connect by SSH:
+
+   ```sh
+   ssh root@<box-ip-address>
+   ```
+
+4. Log in with the default credentials:
+   - Username: **`root`**
+   - Password: **`1234`**
+
+On the first login, Debian will ask you to change the root password.
+
+> No HDMI output is expected. Use Ethernet and SSH for first boot access.
+
+---
+
+### 7. Final Notes
 
 - This setup allows flexible booting between **internal eMMC** and **SD card**
 - TWRP remains available as an application via the cache mechanism
