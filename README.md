@@ -18,6 +18,11 @@ This project focuses on:
 
 Download the releases here: https://github.com/chieunhatnang/vnptsmb2-s805-debian/releases
 
+There are **two supported installation methods**. The difference is where the Debian root filesystem is stored:
+
+- **Internal eMMC rootfs**: Recommended if the internal storage is large enough. This uses the existing hardware and usually gives better I/O speed.
+- **SD card rootfs**: Recommended if you need a larger root filesystem. The box still uses the internal boot environment, but Debian runs from the SD card.
+
 Please follow the steps **exactly**. No information in this guide is optional unless explicitly stated.
 
 ---
@@ -30,12 +35,14 @@ Please follow the steps **exactly**. No information in this guide is optional un
 
 ### 2. Prepare the SD Card (Debian Image)
 
+Skip this step if you want to boot Debian fully from **internal eMMC**.
+
 - Take the file:
 
   **`VNPTSMB2-S805-Debian-Bullseye-2.0.img`**
 
 - Use **Balena Etcher** to burn this image to an **SD card**.
-- Flash `env` partition only in the step 3.
+- Use this SD card only for the **SD card rootfs** installation method.
 
 ---
 
@@ -80,6 +87,27 @@ Once TWRP is loaded:
 
 You will see **four partitions** available for restore:
 
+Choose the restore partitions based on the installation method you want:
+
+#### Method A: Rootfs on internal eMMC
+
+Use this method for the best I/O speed and the simplest setup.
+
+- Restore **`env`**, **`data`**, and **`cache`**.
+- Restore **`boot`** only if your device does not boot after trying without it.
+- No Debian SD card image is required.
+- Debian rootfs will be installed on the internal **`data`** partition and booted from **`/dev/data`**.
+
+#### Method B: Rootfs on SD card
+
+Use this method if you need a larger Debian root filesystem than the internal storage can provide.
+
+- First complete **Step 2** and insert the prepared SD card.
+- Restore **`env`** only.
+- Optionally restore **`cache`** if you want TWRP to be available later from stock recovery.
+- Do **not** restore **`data`** unless you also want to overwrite the internal Android data partition with the Debian rootfs.
+- Debian rootfs will be loaded from **partition 2 of the SD card**: **`/dev/mmcblk0p2`**.
+
 ---
 
 #### Partition: `boot`
@@ -92,20 +120,21 @@ You will see **four partitions** available for restore:
 #### Partition: `env`
 
 - U-Boot environment partition
-f - It contains **custom code** to support booting from **SD card** and **internal eMMC**
+- It contains **custom code** to support booting from **SD card** and **internal eMMC**
 
 **Boot behavior after installing this partition:**
 
 - After installing this partition, the box will boot from **internal eMMC** (`/dev/data`) by default.
 - When an SD card is plugged in, it will boot from **partition 2 of the SD card** (`/dev/mmcblk0p2`).
-- If you want to boot from SD card,  flash this partition only.
+- For an SD card rootfs install, this is the only required TWRP partition to restore.
 
 ---
 
 #### Partition: `data`
 
 - Debian **root filesystem**
-- Debian will be installed and run from this partition
+- Restore this partition only for the **internal eMMC rootfs** installation method.
+- Debian will be installed and run from this partition as **`/dev/data`**.
 
 ---
 
