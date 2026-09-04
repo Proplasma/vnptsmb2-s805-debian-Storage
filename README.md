@@ -146,6 +146,9 @@ Use this method if you need a larger Debian root filesystem than the internal st
   - Selecting **“Apply update from cache”**
   - Selecting **`twrp-3.1.1.zip`**
 
+Chú Ý quan trọng, để đúng định dạng và vị trí file, lệch vị trí folder thôi là TWRP sẽ không nhìn thấy file để nạp
+
+
 ---
 
 ### 6. First Boot and SSH Login
