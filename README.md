@@ -25,6 +25,14 @@ There are **two supported installation methods**. The difference is where the De
 
 Please follow the steps **exactly**. No information in this guide is optional unless explicitly stated.
 
+
+
+
+
+---
+
+
+
 ---
 
 ### 1. Extract the Files
@@ -59,7 +67,18 @@ Skip this step if you want to boot Debian fully from **internal eMMC**.
 - Copy **both** `twrp-3.1.1.zip` **and** the `TWRP` folder to a **USB drive**.
 
 
+---
+
 Chú Ý quan trọng, để đúng định dạng và vị trí file, lệch vị trí folder thôi là TWRP sẽ không nhìn thấy file để nạp
+
+
+
+SD Cards:
+/sdcard/TWRP/BACKUPS/ ...etc
+
+USB Drive (Make Sure It In FAT32 Format)
+
+/[Usb Drive Name ]/TWRP/BACKUPS/ ... etc
 ---
 
 ### 4. Load TWRP Using Stock Recovery
