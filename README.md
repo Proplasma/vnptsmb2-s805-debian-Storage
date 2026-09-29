@@ -79,6 +79,11 @@ SD Cards:
 USB Drive (Make Sure It In FAT32 Format)
 
 /[Usb Drive Name ]/TWRP/BACKUPS/ ... etc
+
+
+
+
+
 ---
 
 ### 4. Load TWRP Using Stock Recovery
