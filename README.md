@@ -2,6 +2,10 @@
 
 ## Short Introduction
 
+
+<img width="872" height="533" alt="image" src="https://github.com/user-attachments/assets/23acff37-f67f-409d-85da-86decca165c5" />
+---
+
 This project provides a **Debian / Armbian (Bullseye)** system for the **VNPT MyTV Smartbox 2** powered by **Amlogic S805 (Meson8b)**.  
 Due to secure-boot restrictions on some boards, this setup **reuses the stock Android kernel (3.10.33)** and boots Debian via a custom initramfs and root filesystem.
 
